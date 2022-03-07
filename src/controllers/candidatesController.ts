@@ -31,7 +31,7 @@ const candidatesController = {
         const { id } = req.params
         const { name, bio, email, phone, openToWork } = req.body
 
-        const result = await Candidate.update({
+        const [affectedRows, candidates] = await Candidate.update({
             name,
             bio,
             email,
@@ -42,9 +42,7 @@ const candidatesController = {
             returning: true
         })
 
-        const candidate = result[1]
-
-        return res.json(candidate)
+        return res.json(candidates[0])
     },
 
     delete: async (req: Request, res: Response) => {
