@@ -1,5 +1,5 @@
 import express from 'express'
-import { candidatesController } from './controllers/candidates-controller'
+import { candidatesController } from './controllers/candidatesController'
 
 const router = express.Router()
 
