@@ -12,8 +12,7 @@ interface CandidateAttributes {
 
 interface CandidateCreationAttributes extends Optional<CandidateAttributes, 'id'> { }
 
-interface CandidateInstance
-    extends Model<CandidateAttributes, CandidateCreationAttributes>, CandidateAttributes { }
+interface CandidateInstance extends Model<CandidateAttributes, CandidateCreationAttributes>, CandidateAttributes { }
 
 const Candidate = sequelize.define<CandidateInstance, CandidateAttributes>(
     'candidates',

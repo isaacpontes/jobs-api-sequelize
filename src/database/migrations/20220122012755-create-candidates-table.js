@@ -21,14 +21,14 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
-      openToWork: {
+      open_to_work: {
         type: Sequelize.BOOLEAN
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }

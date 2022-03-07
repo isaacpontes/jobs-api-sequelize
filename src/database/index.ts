@@ -6,7 +6,10 @@ const sequelize = new Sequelize({
     port: 5432,
     database: 'onebitjobs',
     username: 'usuario',
-    password: 'senha'
+    password: 'senha',
+    define: {
+        underscored: true
+    }
 })
 
 export { sequelize }
