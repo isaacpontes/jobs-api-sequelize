@@ -11,7 +11,9 @@ interface JobAttributes {
 
 interface JobCreationAttributes extends Optional<JobAttributes, 'id'> { }
 
-interface JobInstance extends Model<JobAttributes, JobCreationAttributes>, JobAttributes { }
+interface JobInstance extends Model<JobAttributes, JobCreationAttributes>, JobAttributes {
+    addCandidate: (candidateId: number) => Promise<void>
+}
 
 const Job = sequelize.define<JobInstance, JobAttributes>(
     'jobs',
