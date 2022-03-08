@@ -1,7 +1,7 @@
 import { sequelize } from '../database'
-import { DataTypes, Model, Optional } from 'sequelize'
+import { DataTypes, Model } from 'sequelize'
 
-interface CandidateAttributes {
+interface CandidateInstance extends Model {
     id: number
     name: string
     bio: string
@@ -10,27 +10,30 @@ interface CandidateAttributes {
     openToWork: boolean
 }
 
-interface CandidateCreationAttributes extends Optional<CandidateAttributes, 'id'> { }
-
-interface CandidateInstance extends Model<CandidateAttributes, CandidateCreationAttributes>, CandidateAttributes { }
-
-const Candidate = sequelize.define<CandidateInstance, CandidateAttributes>(
+const Candidate = sequelize.define<CandidateInstance>(
     'candidates',
     {
         id: {
-            allowNull: false,
             type: DataTypes.INTEGER,
+            allowNull: false,
             autoIncrement: true,
             primaryKey: true
         },
         name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
             allowNull: false,
-            type: DataTypes.STRING
+            unique: true
         },
         bio: DataTypes.TEXT,
-        email: DataTypes.STRING,
         phone: DataTypes.STRING,
-        openToWork: DataTypes.BOOLEAN
+        openToWork: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
     }
 )
 

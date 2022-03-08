@@ -1,7 +1,7 @@
 import { sequelize } from '../database'
-import { DataTypes, Model, Optional } from 'sequelize'
+import { DataTypes, Model } from 'sequelize'
 
-interface CompanyAttributes {
+interface ComapnyInstance extends Model {
     id: number
     name: string
     bio: string
@@ -9,22 +9,18 @@ interface CompanyAttributes {
     email: string
 }
 
-interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'id'> { }
-
-interface CompanyInstance extends Model<CompanyAttributes, CompanyCreationAttributes>, CompanyAttributes { }
-
-const Company = sequelize.define<CompanyInstance, CompanyAttributes>(
+const Company = sequelize.define<ComapnyInstance>(
     'companies',
     {
         id: {
-            allowNull: false,
             type: DataTypes.INTEGER,
+            allowNull: false,
             autoIncrement: true,
             primaryKey: true
         },
         name: {
-            allowNull: false,
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
         bio: DataTypes.TEXT,
         website: DataTypes.STRING,

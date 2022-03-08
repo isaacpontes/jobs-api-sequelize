@@ -4,9 +4,9 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('job_candidates', {
       candidate_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER,
         references: {
           model: 'candidates',
           key: 'id'
@@ -15,9 +15,9 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       job_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER,
         references: {
           model: 'jobs',
           key: 'id'
@@ -26,12 +26,12 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       created_at: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       }
     })
   },

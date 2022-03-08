@@ -1,38 +1,39 @@
 import { sequelize } from '../database'
-import { DataTypes, Model, Optional } from 'sequelize'
+import { DataTypes, Model } from 'sequelize'
 
-interface JobAttributes {
+interface JobInstance extends Model {
     id: number
     title: string
     description: string
     limitDate: Date
     companyId: number
-}
-
-interface JobCreationAttributes extends Optional<JobAttributes, 'id'> { }
-
-interface JobInstance extends Model<JobAttributes, JobCreationAttributes>, JobAttributes {
     addCandidate: (candidateId: number) => Promise<void>
 }
 
-const Job = sequelize.define<JobInstance, JobAttributes>(
+const Job = sequelize.define<JobInstance>(
     'jobs',
     {
         id: {
-            allowNull: false,
             type: DataTypes.INTEGER,
+            allowNull: false,
             autoIncrement: true,
             primaryKey: true
         },
         title: {
-            allowNull: false,
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        description: DataTypes.TEXT,
-        limitDate: DataTypes.DATE,
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        limitDate: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
         companyId: {
-            allowNull: false,
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'companies',
                 key: 'id'
