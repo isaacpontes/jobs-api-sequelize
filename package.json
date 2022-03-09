@@ -1,24 +1,25 @@
 {
-  "name": "api-sequelize",
+  "name": "jobs-api-sequelize",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": " A small jobs and candidates API using typescript, express and sequelize. ",
+  "main": "src/app.ts",
   "scripts": {
     "dev": "ts-node-dev src/app.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Isaac Pontes",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.17.0"
+  },
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/node": "^17.0.10",
+    "@types/node": "^17.0.21",
+    "dotenv": "^16.0.0",
     "sequelize-cli": "^6.4.1",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
-    "express": "^4.17.2",
-    "pg": "^8.7.1",
-    "sequelize": "^6.13.0"
+    "typescript": "^4.6.2"
   }
 }

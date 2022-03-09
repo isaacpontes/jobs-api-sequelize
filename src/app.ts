@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import { router } from './routes'
 
@@ -7,4 +8,8 @@ app.use(express.json())
 
 app.use(router)
 
-app.listen(3000, () => console.log('Started!'))
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log('Started!')
+})
