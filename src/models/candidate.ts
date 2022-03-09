@@ -1,4 +1,4 @@
-import { sequelize } from '../database'
+import { database } from '../database'
 import { DataTypes, Model } from 'sequelize'
 
 interface CandidateInstance extends Model {
@@ -10,7 +10,7 @@ interface CandidateInstance extends Model {
     openToWork: boolean
 }
 
-const Candidate = sequelize.define<CandidateInstance>(
+const Candidate = database().define<CandidateInstance>(
     'candidates',
     {
         id: {

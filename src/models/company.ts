@@ -1,4 +1,4 @@
-import { sequelize } from '../database'
+import { database } from '../database'
 import { DataTypes, Model } from 'sequelize'
 
 interface ComapnyInstance extends Model {
@@ -9,7 +9,7 @@ interface ComapnyInstance extends Model {
     email: string
 }
 
-const Company = sequelize.define<ComapnyInstance>(
+const Company = database().define<ComapnyInstance>(
     'companies',
     {
         id: {

@@ -1,4 +1,4 @@
-import { sequelize } from '../database'
+import { database } from '../database'
 import { DataTypes, Model } from 'sequelize'
 
 interface JobInstance extends Model {
@@ -10,7 +10,7 @@ interface JobInstance extends Model {
     addCandidate: (candidateId: number) => Promise<void>
 }
 
-const Job = sequelize.define<JobInstance>(
+const Job = database().define<JobInstance>(
     'jobs',
     {
         id: {
