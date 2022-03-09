@@ -8,7 +8,7 @@
     "start": "node ./build/app.js",
     "build": "tsc",
     "heroku-prebuild": "npm install",
-    "heroku-postbuild": "npm prune --prod"
+    "heroku-cleanup": "npm prune --prod"
   },
   "keywords": [],
   "author": "Isaac Pontes",
