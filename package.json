@@ -4,7 +4,9 @@
   "description": " A small jobs and candidates API using typescript, express and sequelize. ",
   "main": "src/app.ts",
   "scripts": {
-    "dev": "ts-node-dev src/app.ts"
+    "dev": "ts-node-dev src/app.ts",
+    "build": "tsc",
+    "start": "npm run build && node build/app.js"
   },
   "keywords": [],
   "author": "Isaac Pontes",
