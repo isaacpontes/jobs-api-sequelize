@@ -5,8 +5,9 @@ export const database = () => {
 
     const sequelize = new Sequelize(dbUrl, {
         define: {
-            underscored: true
-        }
+            underscored: true,
+        },
+        ssl: process.env.NODE_ENV === 'production'
     })
 
     return sequelize
