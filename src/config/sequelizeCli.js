@@ -14,7 +14,10 @@ module.exports = {
         url: process.env.DATABASE_URL,
         ssl: true,
         dialectOptions: {
-            ssl: true
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
         }
     }
 }

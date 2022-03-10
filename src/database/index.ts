@@ -7,7 +7,13 @@ export const database = () => {
         define: {
             underscored: true,
         },
-        ssl: process.env.NODE_ENV === 'production'
+        ssl: process.env.NODE_ENV === 'production',
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        }
     })
 
     return sequelize
